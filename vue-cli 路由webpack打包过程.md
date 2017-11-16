@@ -23,7 +23,7 @@ new Vue({
 ``
 9. 在scr里新建components文件。在components文件里新建两个组件文件Mains.vue和Deail.vue
 10. 在App.vue里写：
-``
+```
 <template>
   <div id="app">
    <router-view></router-view>
@@ -53,7 +53,7 @@ export default {
 
 </style>
 
-``
+```
 10. Detail.vue 里写：
 ```
 <template>
@@ -77,7 +77,7 @@ data:function(){
 </script>
 ```
 11. Mains.vue里写：
-``
+```
        <template>
             <div>
                 <h1>
@@ -119,10 +119,10 @@ data:function(){
         }
     }
         </script>
-``
+```
 13. main.js里改为：
 
-``
+```
 import Vue from 'vue'
 import vueRouter from "vue-router"
 //引进路由
@@ -140,9 +140,9 @@ new Vue({
     //挂载到vue 上
 })
 
-``
+```
 14. src里写一个 router.config.js 配置路由：
-``
+```
 import Mains from "./components/Mains.vue"
 import Detail from "./components/Detail.vue"
 //import 引入 自定名字 路径是‘href’
@@ -155,4 +155,4 @@ export default{
     {path:'/',component:Mains}
 ]
 }
-``
+```
