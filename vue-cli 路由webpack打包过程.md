@@ -55,7 +55,7 @@ export default {
 
 ``
 10. Detail.vue 里写：
-``
+```
 <template>
              <div>  
             <h1>{{arr}}</h1>
@@ -75,7 +75,7 @@ data:function(){
         }
 }
 </script>
-``
+```
 11. Mains.vue里写：
 ``
        <template>
