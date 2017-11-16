@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复合组件</title>
+</head>
+<body>
+<div id="app">
+    <!--<my-title></my-title>-->
+    <!--<my-text></my-text>-->
+    <my-com></my-com>
+</div>
+<script src="vue.js"></script>
+<script>
+    Vue.component('my-title',{
+        template:"<h1>复合组件</h1>"
+    });
+    Vue.component('my-text',{
+        template:"<p>文字</p>"
+    });
+    Vue.component("my-com",{
+        template:
+        `
+        <div>
+            <my-title></my-title>
+            <my-text></my-text>
+        </div>
+        `
+    });
+    new Vue({
+        el:"#app"
+    })
+</script>
+</body>
+</html>

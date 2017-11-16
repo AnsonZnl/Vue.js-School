@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>对象的循环</title>
+</head>
+<body>
+<div id="itany">
+    <ul>
+        <li v-for="value in user">{{value}}</li>
+    </ul>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#itany',
+        data:{
+           user:{id:3,name:"jack"}
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="msg"/>
+    {{msg}}
+    <!-- 使用v-text进行双向数据绑定-->
+    <h3 v-text="msg"></h3>
+
+    <!-- 使用v-html进行双向数据绑定,v-html可以识别输入中的标签，而其它的不可以-->
+    <h3 v-html="msg"></h3>
+</div>
+<script src="exer/js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            msg:"welcome to itany"
+        }
+    })
+</script>
+</body>
+</html>

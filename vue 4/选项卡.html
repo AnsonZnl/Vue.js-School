@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #nav{
+            overflow: hidden;
+            width: 300px;
+            border:solid 1px #000;
+        }
+        #nav  li{
+            width: 100px;
+            text-align: center;
+            float: left;
+        }
+        #contaer{
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            border:solid 1px #000;
+        }
+        #contaer  li{
+            width: 100px;
+            text-align: center;
+            float: left;
+            line-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+ <div id="app">
+     <ul id="nav">
+         <li v-for="(value,index) in card" @click="clck(index)">
+             {{value.name}}
+         </li>
+     </ul>
+     <ul id="contaer">
+         <li v-for="(value,index) in card" v-show="value.falg">
+             {{value.content}}
+         </li>
+     </ul>
+ </div>
+    <!-- JavaScript -->
+    <script src="js/vue.js"></script>
+    <script>
+    new Vue({
+        el:"#app",
+        data:{
+            card:[
+                {name:"选项卡1",content:"1111",falg:true},
+                {name:"选项卡2",content:"222",falg:false},
+                {name:"选项卡3",content:"3333",falg:false}
+            ]
+        },
+        methods:{
+            clck:function(index){
+                var len=this.card.length;
+                var n=index;
+                for (var i=0;i<len;i++){
+                    this.card[i].falg=false;
+                }
+                this.card[n].falg=true;
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="itany">
+    <button v-on:click="show()">按钮</button>
+    <button v-on:click="add()">向数组中添加新元素</button>
+        {{arr}}
+
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#itany',
+        data:{
+            arr:[1,2,3,4,5]
+        },
+        methods:{
+            show:function(){
+                alert('show方法');
+            },
+            add:function(){
+                this.arr.push(666);
+            }
+
+
+        }
+    })
+</script>
+</body>
+</html>

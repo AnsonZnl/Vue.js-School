@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+</head>
+<body>
+<div id="div">
+<p v-hello>{{num}}</p>
+</div>
+<script src="js/vue.js"></script>
+<script>
+//    <!--全局的-->
+//    Vue.directive("hello",{
+//        bind:function(){
+//            alert(111);
+//            //只绑定一次
+//        }
+//    });
+    var vn=  new Vue({
+        el:"#div",
+        data:{
+            num:1
+        },
+        directives:{//局部的
+            hello:{
+                bind:function(){
+                    alert(11)
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

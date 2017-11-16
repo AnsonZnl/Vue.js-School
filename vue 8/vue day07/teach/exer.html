@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+</head>
+<body>
+<div id="app">
+    <my-form></my-form>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('my-label',{
+        props:['ulabel'],
+        template:`<label>{{ulabel}}</label>`
+    });
+    Vue.component('my-input',{
+        props:['tips'],
+        template:`<input type="text" :placeholder="tips">`
+    });
+
+    Vue.component('my-form',{
+        template:`
+            <form>
+                <my-label ulabel="用户名"></my-label>
+                <my-input tips="请输入用户名"></my-input>
+                <my-label ulabel="密码"></my-label>
+                <my-input tips="请输入密码"></my-input>
+            </form>
+        `
+    })
+    new Vue({
+        el: '#app',
+        data:{
+            fruitList:[
+                {name:'香蕉',price:1,num:1,sunprice:1},
+                {name:'苹果',price:2,num:1,sunprice:2},
+                {name:'鸭梨',price:3,num:1,sunprice:3}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

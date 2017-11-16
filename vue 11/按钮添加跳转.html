@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 路由</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <router-view></router-view>
+    </div>
+</div>
+<!-- JavaScript -->
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    var Denglu=Vue.component('login',{
+        template:`
+        <div>
+         <h1>
+            登录
+            </h1>
+             <router-link to="/logou">注册</router-link>
+             <router-link to="/*">404</router-link>
+
+        </div>
+
+        `
+    });
+    var Four=Vue.component('four',{
+        template:`
+        <div>
+         <h1>
+           404
+            </h1>
+             <router-link to="/logou">注册</router-link>
+
+        </div>
+
+        `
+    });
+     var Zhuce=Vue.component('logou',{
+        template:`
+
+          <div>
+         <h1>
+            注册
+            </h1>
+             <!--<router-link to="/logou">注册完成去登录</router-link>-->
+             <button @click="toIogin">注册完成去登录</button>
+
+        </div>
+        `,
+         methods:{
+             toIogin:function(){
+                 this.$router.push('/login');
+//                 push 添加一个路由 给按钮添加一个跳转
+             }
+         }
+    });
+    const myRoutes=[
+        {path:"/login",component:Denglu},
+        {path:"/logou",component:Zhuce},
+        {path:"/",component:Zhuce},
+        {path:"*",component:Four}
+    ];
+    var myRouter=new VueRouter({
+        routes:myRoutes
+    });
+    new Vue({
+        el:"#app",
+        router:myRouter
+
+    })
+
+
+</script>
+</body>
+</html>

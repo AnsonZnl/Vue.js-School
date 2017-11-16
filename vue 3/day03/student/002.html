@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--<div @click="out()">-->
+        <!--<p @click="mid()">-->
+            <!--<button @click="inner($event)">按钮</button>-->
+        <!--</p>-->
+    <!--</div>-->
+    <div @click="out()">
+        <p @click="mid()">
+            <button @click.stop="inner()">按钮</button>
+        </p>
+    </div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        methods:{
+            inner:function(){
+                console.log(111)
+//                e.stopPropagation();//阻止事件冒泡
+            },
+            mid:function(){
+                console.log(222)
+            },
+            out:function(){
+                console.log(333)
+            }
+        }
+    })
+</script>
+</body>
+</html>

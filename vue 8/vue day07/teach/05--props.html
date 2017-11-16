@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>父集向子集传递</title>
+</head>
+<body>
+<div id="app">
+    <father></father>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('child',{
+        props:['fathd'],
+        template:`
+            <h1>{{fathd}}</h1>
+        `
+    });
+   Vue.component('father',{
+       template:`
+            <div>
+                <h1>我是父组件</h1>
+                <child :fathd="num1"></child>
+            </div>
+       `,
+       data:function(){
+           return {
+               num1:5
+           }
+       }
+   })
+    new Vue({
+        el: '#app',
+    })
+</script>
+</body>
+</html>

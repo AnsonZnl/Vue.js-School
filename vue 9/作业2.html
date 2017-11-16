@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业2</title>
+</head>
+<style>
+    div{
+        margin: auto;
+        text-align: center;
+    }
+</style>
+<body>
+<div id="app">
+    <com1></com1>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("com2",{
+        template:`
+        <div>
+            <h1>请输入聊天信息</h1>
+            <lable>jsck:</lable>
+            <input type="text" v-model="msg">
+            <button @click="send()">发送</button>
+        </div>
+       `,
+//            <button @click="send()">向父组件传递参数</button>  点击事件 send  send 在methods
+        data:function(){
+            return{
+                msg:""
+                //双向数据绑定input msg 写在data中 msg
+            }
+        },
+        methods:{
+            send:function(){
+                this.$emit("sendta",this.msg);
+                this.msg='';
+//绑定事件 sendta this.msg 事件后的参数
+            }
+        }
+    }) ;
+    Vue.component("com3",{
+        template:`
+        <div>
+            <lable>roce:</lable>
+            <input type="text" v-model="msg2">
+            <button @click="send2()">发送</button>
+        </div>
+       `,
+//            <button @click="send()">向父组件传递参数</button>  点击事件 send  send 在methods
+        data:function(){
+            return{
+                msg2:""
+                //双向数据绑定input msg 写在data中 msg
+            }
+        },
+        methods:{
+            send2:function(){
+                this.$emit("sendta2",this.msg2);
+                this.msg2='';
+//绑定事件 sendta this.msg 事件后的参数
+            }
+        }
+    }) ;
+    Vue.component("com1",{
+        template:`
+        <div>
+        <div style="border: solid 1px #000;">
+            <h1>聊天记录</h1>
+            <p v-for="value in num">jsck：{{value}}</p>
+            <p v-for="value in num2">roce：{{value}}</p>
+            </div>
+            <com2 @sendta="rcv"></com2>
+            <com3 @sendta2="rcv2"></com3>
+        </div>
+       `,
+        data:function(){
+            return{
+                num:[], num2:[]
+            }
+        },
+        methods:{
+            rcv:function(n){
+                this.num.push(n);
+            },
+            rcv2:function(b){
+                this.num2.push(b);
+            }
+        }
+    });
+
+
+
+    new Vue({
+        el:"#app"
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <img :src="url" @click="chg()"/>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            url:'img/1.jpg',
+            hrf:'img/2.jpg'
+        },
+        methods:{
+            chg:function(){
+               this.url=this.hrf;
+            }
+        }
+    })
+</script>
+</body>
+</html>

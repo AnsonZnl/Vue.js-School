@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+<div id="app">
+<p>{{mag}}</p>
+<p>{{getMag}}</p>
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            mag:"no zuo no die no kan no bibi"
+        },
+        computed:{
+            getMag:function () {
+                return this.mag.split(" ").reverse().join(" ")
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!-- keydown  keyup-->
+    <!--<input type="text" @keydown="show($event)"/>-->
+    <!--<input type="text" @keydown.13="show($event)"/>-->
+    <input type="text" @keydown.enter="show($event)"/>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        methods:{
+            show:function(){
+//                console.log(e.keyCode);
+//                if(e.keyCode==13){
+                    console.log('您按下了回车键')
+//                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

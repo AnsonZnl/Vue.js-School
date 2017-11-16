@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+    <style>
+        h2{
+            text-align: center;
+        }
+        .text-center{
+            text-align: center;
+        }
+        li{
+            list-style: none;
+        }
+        div{
+            margin: auto;
+            width: 500px;
+            text-align: left;
+        }
+        .border{
+            border:solid 1px #000000;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+
+    <chat-room></chat-room>
+</div>
+<!--
+    子组件给父组件差UN数据用事件 $meit
+    父组件给子组件差UN数据用props
+
+-->
+    <script src="js/vue.js"></script>
+    <script>
+
+    Vue.component("chat-room",{
+      template:
+      `
+        <div>
+        <h2>聊天记录</h2>
+        <div class="border">
+            <ul>
+                <li v-for="value in arr">{{value}}</li>
+            </ul>
+            </div>
+            <h2>请输入内容</h2>
+            <user userName="李明" @sendTo="rcvMag"></user>
+            <user userName="小红" @sendTo="rcvMag"></user>
+        </div>
+      `,
+        data:function(){
+            return{
+                arr:[]
+            }
+        },
+        methods:{
+            rcvMag:function(msg){
+                this.arr.push(msg)
+            }
+        }
+    });
+    Vue.component("user",{
+        props:["userName"],
+        template:
+            `
+                <div class="text-center">
+                    <label>{{userName}}</label>
+                    <input type="text" v-model="userInput">
+                    <button @click="sendToFather">发送</button>
+                </div>
+            `,
+        data:function(){
+            return{
+                userInput:""
+            }
+        },
+        methods:{
+            sendToFather:function(){
+                this.$emit(
+                        'sendTo',
+                        this.userName+': '+this.userInput
+                );
+                this.userInput='';
+            }
+        }
+
+    });
+    new Vue({
+        el:"#app"
+    })
+    </script>
+</body>
+
+</html>

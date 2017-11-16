@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>z指令</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="amg">
+    <p v-once>{{amg}}</p>
+    <p>{{amg}}</p>
+    <p v-pre>{{amg}}</p>
+    <p>{{amg}}</p>
+
+    <input type="text" v-model="mxg">
+    <p>{{mxg}}</p>
+    <p v-text="mxg">{{mxg}}</p><!--和model一样-->
+    <p v-html="mxg">{{mxg}}</p><!--解析HTML标签-->
+</div>
+<script src="js/vue.js"></script>
+<script>
+//    v-once： 只绑定一次 只绑定原来的不变化
+//    v-pre： 原样输出
+//双向数据绑定
+//v-model
+//、v-text
+//v-html    解析标签
+    new Vue({
+        el:"#app",
+        data:{
+            amg:'kjijij',
+            mxg:'holle world'
+        }
+    })
+</script>
+</body>
+</html>

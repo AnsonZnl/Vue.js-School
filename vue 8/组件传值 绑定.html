@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+</head>
+<body>
+<div id="app">
+    <!--<my-component v-bind:message="msg"></my-component>-->
+    <!--绑定属性用 v-bind 可简写为 ：-->
+    <my-component :message="msg"></my-component>
+</div>
+<script src="js/vue.js"></script>
+<script>
+
+    Vue.component("my-component",{
+        props:['message'],
+        template:"<h1>{{message}}</h1>"
+    });
+
+
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"holle world"
+        }
+    })
+
+</script>
+</body>
+</html>

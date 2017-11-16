@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <my-form></my-form>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('uname-label',{
+        template:'<label>用户名:</label>'
+    });
+    Vue.component('uname-input',{
+        template:'<input type="text" placeholder="请输入用户名">'
+    });
+
+    Vue.component('pword-label',{
+        template:'<label>密码:</label>'
+    });
+    Vue.component('pword-input',{
+        template:'<input type="password" placeholder="请输入密码">'
+    });
+    Vue.component('btn-regist',{
+        template:'<button type="button">注册</button>'
+    });
+    Vue.component('btn-login',{
+        template:'<button type="button">登陆</button>'
+    });
+
+//创建一个复合组件
+
+    Vue.component('my-form',{
+        template:`
+           <form>
+                <uname-label></uname-label>
+                <uname-input></uname-input>
+                <br/>
+                <pword-label></pword-label>
+                <pword-input></pword-input>
+                <br/>
+                <btn-regist></btn-regist>
+                <btn-login></btn-login>
+           <form>
+        `
+    });
+
+
+
+
+
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

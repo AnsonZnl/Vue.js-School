@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <a href="/123" class="fadein">123</a>
+        <router-view></router-view>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    var Chilrend=Vue.component("chil",{
+        template:`
+
+        `
+    });
+    var List=Vue.component("list",{
+        template:
+
+        `
+        <div>
+            <h2>水果列表</h2>
+            <ul>
+                <li v-for="value in uname"  @click="toIogin(index)">{{value}}</li>
+            </ul>
+         </div>
+        `,
+        data:function(){
+            return{
+                uname:[
+                    '苹果',
+                    '鸭梨',
+                    '西红寺',
+                    '芒果',
+                    '西瓜'
+                ]
+            }
+        },
+        methods:{
+            toIogin:function(index){
+                this.$router.push('/sg');
+//                 push 添加一个路由 给按钮添加一个跳转
+            }
+        }
+    });
+
+
+    const myRoutes=[
+        {path:"/list",component:List},
+        {path:"/",component:List}
+    ];
+    var myRouter=new VueRouter({
+        routes:myRoutes
+    });
+    new Vue({
+        el:"#app",
+        router:myRouter
+    })
+</script>
+</body>
+</html>

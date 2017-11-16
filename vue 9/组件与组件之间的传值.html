@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+<div id="app">
+    <com1></com1>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("com2",{
+        template:`
+        <div>
+            <h1>这是子组件</h1>
+            <input type="text" v-model="msg">
+            <button @click="send()">向父组件传递参数</button>
+        </div>
+       `,
+//            <button @click="send()">向父组件传递参数</button>  点击事件 send  send 在methods
+        data:function(){
+            return{
+                msg:""
+                //双向数据绑定input msg 写在data中 msg
+            }
+        },
+        methods:{
+            send:function(){
+                this.$emit("sendta",this.msg);
+//
+            }
+        }
+    }) ;
+
+   Vue.component("com1",{
+       template:`
+        <div>
+            <h1>这是父组件</h1>
+            <p>子组件传过来的数据为：{{num}}</p>
+            <com2 @sendta="rcv"></com2>
+        </div>
+       `,
+       data:function(){
+           return{
+               num:''
+           }
+       },
+       methods:{
+          rcv:function(n){
+               this.num=n;
+           }
+       }
+   }) ;
+
+
+
+
+   new Vue({
+       el:"#app"
+   })
+</script>
+
+</body>
+
+</html>

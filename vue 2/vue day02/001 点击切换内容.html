@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>点击事件</title>
+</head>
+<body>
+<div id="itany">
+    <p>{{txt}}</p>
+    <button v-on:click="change()">按钮</button>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#itany',
+        data:{
+            txt:'hello world'
+        },
+        methods:{
+            change:function(){
+                this.txt='hello vue'
+            }
+        }
+    })
+</script>
+</body>
+</html>

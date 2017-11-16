@@ -1,0 +1,34 @@
+Vue.js
+一、Vue.js简介
+    1、Vue.js是什么？
+		Vue.js也称为Vue,
+		版本 v1.0  v2.0
+		是一个用来构建用户界面的框架
+		是一个轻量级的MVVM框架(Model-View-ViewModel)框架，其实就是数据的双向绑定
+		数据驱动+组件化的前端开发(核心思想)
+		通过简单的API可以实现响应式的数据绑定和组合的视图组件
+		更容易上手、小巧
+		参考官网：vuejs.org
+
+	2.vue
+	  由个人维护，尤雨溪，华人，目前就职于阿里巴巴
+	  2014 2月开源了vue.js的源代码
+	  都不兼容低版本的IE
+
+	  <div id='itany'>{{msg}}</div>
+      <script src='js/vue.js'></script>
+      	<script>
+      		new Vue({
+      			el:'#itany',//指定关联的选择器,可以为id,可以为class,也可以为元素选择器
+      		    //在2.0中关联的选择器不可以放在html或body上，1.0可以
+      			data:{//存储数据
+      				msg:'hello world'
+      			}
+      		})//创建一个view示例
+        </script>
+
+二、常用指令
+   1.什么是指令：用来扩张html标签的功能
+      v-model  用来进行进行双向数据绑定，长用于表单元素
+      v-for    对数组或对象进行循环操作
+      v-on     事件绑定，用法：v-on:事件

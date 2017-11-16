@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例方法</title>
+</head>
+<body>
+<div id="div">
+    <p>{{msg}}</p>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    //    vn 、、实例 方法
+    // $mount（）  获得绑定元素
+    //$destroy()  销毁一个vue实例
+    //$nestTick     解决dom执行完页面没有跟新的bug
+
+//    vn。$destroy()
+    var vn=  new Vue({
+//        el:"#div",
+        data:{
+            msg:"hello vue"
+        }
+    });//.$mount('#div');
+    vn.$mount('#div');//hello vue
+
+</script>
+</body>
+</html>

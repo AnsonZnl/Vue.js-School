@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<p>{{num}}</p>
+    <p>{{getNum}}</p>
+    <p>{{num2()}}</p>
+    <button @click="chg()">修改值</button>
+</div>
+<script src="js/vue.js"></script>
+<script>
+ var vm=new Vue({
+        el: '#app',
+        data: {
+            num:5
+        },
+        computed:{
+            getNum:function(){
+                console.log(new Date())
+                return  this.num-1
+            }
+        },
+        methods:{
+            num2:function(){
+                console.log(new Date())
+                return this.num-1
+            },
+            chg:function(){
+                this.num=666;
+            }
+
+        }
+    })
+
+    function fn(){
+        setInterval(function(){
+            console.log(vm.getNum)
+//            console.log(vm.num2())
+        },1000)
+    }
+
+</script>
+<button onclick="fn()">按钮</button>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-form></my-form>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('uname-label',{
+        template:'<label>用户名</label>'
+    });
+
+    Vue.component('uname-input',{
+        template:'<input type="text" placeholder="请输入用户名"> '
+    });
+    Vue.component('upwd-label',{
+        template:'<label>密码</label>'
+    });
+
+    Vue.component('upwd-input',{
+        template:'<input type="password" placeholder="请输入密码"> '
+    });
+
+    Vue.component('regist',{
+        template:'<button>注册</button>'
+    });
+    Vue.component('login',{
+        template:'<button>登录</button>'
+    });
+
+    //复合组件
+
+    Vue.component('my-form',{
+        template:`
+          <form>
+            <uname-label></uname-label>
+            <uname-input></uname-input>
+            <br>
+            <upwd-label></upwd-label>
+            <upwd-input></upwd-input>
+            <br>
+            <regist></regist>
+            <login></login>
+          </form>
+
+        `
+    })
+
+
+
+    new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello'
+        }
+    })
+</script>
+</body>
+</html>

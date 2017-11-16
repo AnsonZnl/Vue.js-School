@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡图片</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+        }
+        ul{
+            list-style: none;
+        }
+
+        li{
+            float: left;
+            width: 50px;
+            border:solid 1px #000;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="ap">
+    <div></div>
+    <img :src="url1" alt="">
+    <ul v-for="(value,index) in lif">
+        <li @click="chg(index)">
+            {{value}}
+        </li>
+    </ul>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#ap",
+        data:{
+            lif:[
+                   "1","2","3","4","5"
+            ],
+           url1:'img/1.jpg'
+        },
+        methods:{
+            chg:function(index){
+                var n=index;
+                this.url1="img/"+n+".jpg"
+            }
+        }
+    })
+</script>
+<script src="js/vue.js"></script>
+</body>
+</html>

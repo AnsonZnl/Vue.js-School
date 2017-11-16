@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>键值对的循环</title>
+</head>
+<body>
+<div id="itany">
+    <ul>
+        <li v-for="(value,key) in arr">{{key}}-{{value}}</li>
+        <li v-for="(value,key) in user">{{key}}-{{value}}</li>
+    </ul>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#itany",
+        data:{
+            arr:[1,2,3,4,5],
+            user:{id:3,name:"jack"}
+        }
+    })
+</script>
+</body>
+</html>

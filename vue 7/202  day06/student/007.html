@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复合组件</title>
+</head>
+<body>
+<div id="app">
+    <my-conent></my-conent>
+    <!--<my-detail></my-detail>-->
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('my-title',{
+        template:'<h1>hello vue</h1>'
+    })
+    Vue.component('my-detail',{
+        template:'<p>hello vuehello vuehello vuehello vuehello vuehello vuehello vue</p>'
+    })
+
+    Vue.component('my-conent',{
+          template:`
+               <div>
+                   <my-title></my-title>
+                   <my-detail></my-detail>
+               </div>
+          `
+//        template:'<div>'+
+//                "<h1>hello vue</h1>" +
+//                "<p>hello vuehello vuehello vuehello vuehello vuehello vuehello vue</p>"+
+//        '</div>'
+//        template:'<div>'+
+//                    "<my-title></my-title>" +
+//                    "<my-detail></my-detail>"+
+//                 '</div>'
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello'
+        }
+    })
+</script>
+</body>
+</html>

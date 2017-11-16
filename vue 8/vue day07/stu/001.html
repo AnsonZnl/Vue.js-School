@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <my-component></my-component>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('my-component',{
+        template:'<button @click="fn()">{{msg}}</button>',
+        data:function(){
+            return{
+                msg:'aaa'
+            }
+
+        },
+        methods:{
+            fn:function(){
+                alert(1111);
+            }
+        }
+
+    });
+
+
+
+    new Vue({
+        el: '#app',
+        data:{},
+        methods:{}
+    })
+</script>
+</body>
+</html>

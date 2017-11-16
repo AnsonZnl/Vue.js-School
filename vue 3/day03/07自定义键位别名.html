@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+用户名：<input type="text" @keydown.a="show()"/>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.config.keyCodes={
+        a:65
+    };
+
+
+
+    new Vue({
+        el:'#app',
+        methods:{
+            show:function(){
+                console.log('您按下了a键')
+            }
+        }
+    })
+</script>
+</body>
+</html>

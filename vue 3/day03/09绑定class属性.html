@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .aa{
+            color:red;
+            font-size: 20px;
+        }
+        .ee{
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- 正常添加类选择器访问-->
+    <!--<p class="aa">劳动最光荣</p>-->
+
+    <!--不可以访问 -->
+    <!--<p :class="aa">劳动最光荣</p>-->
+
+    <!-- 方式1:通过变量形式设置-->
+    <!--<p :class="cc">劳动最光荣</p>-->
+
+    <!-- 方式2：同时引用多个样式-->
+    <!--<p :class="[cc,dd]">劳动最光荣</p>-->
+
+    <!-- 方式3：json方式，最常用-->
+    <!--<p :class="{aa:true,ee:true}">劳动最光荣</p>-->
+
+    <!-- 使用条件判断，如果num>0则引用样式，不大于0则不应用样式-->
+    <p :class="{aa:num<0,ee:num<0}">劳动最光荣</p>
+
+    <!-- 方式4：用变量引用json-->
+    <p :class="hello">劳动最光荣</p>
+
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            cc:'aa',
+            dd:'ee',
+            num:-2,
+            hello:{aa:true,ee:true}
+        }
+
+
+    })
+</script>
+</body>
+</html>

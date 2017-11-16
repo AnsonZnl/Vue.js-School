@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件之间的通信</title>
+</head>
+<body>
+<div id="app">
+<my-form></my-form>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("my-tabel",{
+        props:["uname"],
+        template:"<label>{{uname}}</label>"
+    });
+    Vue.component("my-ipt",{
+        template:"<input>"
+    });
+    Vue.component("my-but",{
+        props:["content"],
+        template:"<button>{{content}}</button>"
+    });
+    Vue.component("my-form",{
+        template:`
+        <form>
+            <my-tabel uname="用户名"></my-tabel>
+            <my-ipt placeholder='请输入您的用户名'></my-ipt>
+            <br>
+            <my-tabel uname="密码"></my-tabel>
+            <my-ipt placeholder='请输入您的密码' text="password"></my-ipt>
+            <br>
+            <my-but content="登录"></my-but>
+            <my-but content="注册"></my-but>
+        </form>
+
+        `
+    });
+    new Vue({
+        el:"#app"
+    })
+
+</script>
+</body>
+</html>

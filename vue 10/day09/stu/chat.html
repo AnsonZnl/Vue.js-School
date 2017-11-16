@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <chat-room></chat-room>
+
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('chat-room',{
+        template:`
+          <div>
+             <ul>
+                <li v-for="value in arr">{{value}}</li>
+             </ul>
+             <user userName="lily:" @sendTo="rcvMsg"></user>
+             <user userName="lucy:" @sendTo="rcvMsg"></user>
+          </div>
+        `,
+        data:function(){
+            return{
+                arr:[]
+            }
+        },
+        methods:{
+            rcvMsg:function(msg){
+                this.arr.push(msg)
+            }
+        }
+    })
+
+
+
+    Vue.component('user',{
+        props:['userName'],
+        template:`
+            <div>
+               <label for="">{{userName}}</label>
+               <input type="text" v-model="userInput"/>
+               <button @click="sendToFather()">发送</button>
+            </div>
+
+        `,
+        data:function(){
+            return{
+                userInput:''
+            }
+        },
+        methods:{
+            sendToFather:function(){
+                this.$emit(
+                        'sendTo',
+                        this.userName+this.userInput
+                );
+                this.userInput=''
+            }
+        }
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

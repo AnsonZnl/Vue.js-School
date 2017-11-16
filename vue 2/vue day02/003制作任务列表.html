@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="itany">
+    <input type="text" v-model="list"/><button v-on:click="addlist()">添加</button>
+    <ul>
+        <li v-for="(value,index)  in taskList">{{value}}<a v-on:click="detList(index)">删除</a></li>
+    </ul>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#itany",
+        data:{
+            list:'',
+            taskList:['吃饭','睡觉','打游戏']
+        },
+        methods:{
+            addlist:function(){
+                this.taskList.push(this.list);
+            },
+            detList:function(index){
+                this.taskList.splice(index,1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

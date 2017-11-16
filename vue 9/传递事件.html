@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+<div id="app">
+    <btn :nums="num" v-on:addsz="plus"></btn>
+    <!--绑定 组件自定义的nums=num 实列中的num-->
+    <!--点击自动义事件addsz v-on:addsz="plus"  addsz =实列中的 plus 事件 -->
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("btn",{
+        props:["nums"],
+        template:`
+        <div>
+            <p @click="plus()">{{nums}}</p>
+            <button @click="adds()">{{numz}}</button>
+         </div>
+        `,
+//            <p @click="plus()">{{nums}}</p>  传递nums  nums = 实列中data 中的num:0
+//    <button @click="adds()">{{numz}}</button>  numz = 当前data中numz
+        data:function(){
+            return{
+                numz:0
+            }
+        },
+        methods:{
+            adds:function(){
+                this.numz++,
+                 this.$emit(//组件自动义 属性 （方法）
+                         'addsz'//自定义 事件名称 用于传递实列中的事件
+                  )
+            }
+        }
+    });
+
+   new Vue({
+       el:"#app",
+       data:{
+           num:0
+       },
+       methods:{
+           plus:function(){
+               this.num++;
+           }
+       }
+   })
+</script>
+
+</body>
+
+</html>

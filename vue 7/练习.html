@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习 </title>
+</head>
+<body>
+<div id="app">
+    <my-com></my-com>
+</div>
+<script src="vue.js"></script>
+<script>
+    Vue.component('my-title',{
+        template:"<p>用户名："+"<input type='text' placeholder='请输入你的用户名'>"+"</p>"
+    });
+    Vue.component('my-text',{
+        template:`
+<p>密码：</p>
+`
+    });
+
+    Vue.component('my-inp      ',{
+        template:"<button>用户名</button>"
+    });Vue.component('my-name',{
+        template:"<button>用户名</button>"
+    });
+    Vue.component('my-namemi',{
+        template:"<button>密码</button>"
+    });
+    Vue.component("my-com",{
+        template:
+                `
+        <div>
+            <my-title></my-title>
+            <my-text></my-text>
+            <my-name></my-name>
+            <my-namemi></my-namemi>
+        </div>
+        `
+    });
+    new Vue({
+        el:"#app"
+    })
+</script>
+</body>
+</html>

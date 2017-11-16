@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>set 设置属性</title>
+</head>
+<body>
+<div id="div">
+    <!--<input type="text" v-model="name">-->
+    <!--<p>{{name}}</p>-->
+<input type="text" v-model="user.sex">
+    <p>{{user.sex}}</p>
+
+</div>
+<script src="js/vue.js"></script>
+<script>
+//    $watch() 监视数据变化 全局用
+    var vn=  new Vue({
+        el:"#div",
+        data:{
+            name:'jack',
+            user:{id:110,sex:'grli'}
+        },
+//        局部
+//        watch:{
+//            name:function(){
+//             console.log('anme的值改变了')
+//            }
+        watch:{
+            user:{
+                handler:function(){
+                    console.log('sex的值变了');//
+                },
+                deep:true
+            }
+        }
+    });
+
+
+//全局  vn.$woatch('改变的name',function(){})
+//    vn.$watch('name',function(){
+//        console.log('name的值变了')
+//    })
+//vn.$watch('name',function(原来的值,现在的值){
+
+//vn.$watch('name',function(newvalue,oldvalue){
+//        console.log('name的值变了原来的值'+oldvalue+"现在的值"+newvalue);//name的值变了原来的值jackasads现在的值jackasadsf
+//    })
+//引用类型使用深度检测
+    vn.$watch('user.sex',function(newvalue,oldvalue){
+        console.log('name的值变了'+oldvalue+"现在的值"+newvalue);
+        deep:true;//深度检测  true
+    })
+</script>
+</body>
+</html>

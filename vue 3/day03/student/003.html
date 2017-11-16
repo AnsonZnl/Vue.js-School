@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--<a href="#" @click="show($event)">跳转</a>-->
+    <a href="#" @click.prevent="show()">跳转</a>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+    methods:{
+        show:function(){
+            console.log(111);
+//            e.preventDefault();
+        }
+    }
+    })
+</script>
+</body>
+</html>

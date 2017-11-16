@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+</head>
+<body>
+<div id="app">
+    <my-component :uname="user.names" :uage="user.ages"></my-component>
+</div>
+<script src="js/vue.js"></script>
+<script>
+
+    Vue.component("my-component",{
+        props:["uname","uage"],
+        template:"<p>我的名字叫{{uname}},我今年{{uage}}</p>"
+    });
+    new Vue({
+        el:"#app",
+        data:{
+            user: {names:"jack",ages:18}
+        }
+    })
+
+</script>
+</body>
+</html>

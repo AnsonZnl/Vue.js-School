@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+
+</head>
+
+<body>
+<div id="app" >
+    {{name}}
+    {{arr}}
+<!--<input type="text" v-model="print">{{print}}-->
+    <!--//    v-model；双向数据绑定-->
+<input type="text" v-model="print">{{print}}
+<ul>
+    <li v-for="value in arr">{{value}}</li>
+    <!--"value(值名) in arr（数组名）-->
+    <li v-for="value in arr">{{value}}</li>
+    <li v-for="(value,index) in uname">
+        {{index+1}}
+        {{value.name}}
+        {{value.age}}
+    </li>
+</ul>
+    <button v-on:click="alt()">按钮</button>
+    {{num}}
+    <p><button v-on:click="gec()"> 切换内容</button></p>
+    <p>{{hello}}</p>
+    <p>请输入你要添加的内容</p>
+    <input type="text" v-model="n">
+    <p><button v-on:click="tianjia()">点击添加元素</button></p>
+    <p>{{arr}}</p>
+
+
+    <hr>
+    <hr>
+    <hr>
+    <input type="text" v-model="life"><button v-on:click="tianjia2">添加</button>
+    <ul>
+        <li v-for="(value,index) in li_1">{{value}} <button v-on:click="shanchu(index)">删除</button></li>
+    </ul>
+    <hr>
+    <button v-on:click="show()">显示隐藏</button>
+    <div id="as" style="width:20px;height: 30px;background:red;" v-show="flag">2123</div>
+</div>
+
+
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        //选择器
+        data:{
+            //写数据的地方  不限制数据类型和数据个数
+            name: 'jsck',
+            arr:[1,2,3,4],
+            age:18,
+            print:'',
+            obj:{uname:'123'},
+            uname:[
+//                    对象数组
+                {name:'link',age:'15'},
+                {name:'link',age:'16'},
+                {name:'link',age:'18'}
+            ],
+            num:1,
+            n:'',
+            life:'',
+            hello:"hello world",
+            li_1:[
+                    '吃饭',
+                    '睡觉',
+                    '打游戏'
+            ],
+            flag:true
+        },
+        //    指令
+//    v-model；双向数据绑定
+//v-for 循环
+//v-on 执行事件  v-on:click
+//        v-show 控制显示和隐藏（di none） v-if 控制显示隐藏(删除div(元素))
+        methods:{
+//            方法 function
+            alt:function(){
+                this.num++;
+            },
+            gec:function(){
+                this.hello='holle vue'
+            },
+            tianjia:function(){
+//                var a=parseInt(prompt('请输入你要添加的内容'));
+//                this.arr.push(a);
+                this.arr.push(this.n);
+            },
+            shanchu:function(index){
+                this.li_1.splice(index,1);
+            },
+            tianjia2:function(){
+                this.li_1.push(this.life);
+                this.life='';
+            },
+            show:function(){
+//                this.flag=false;
+                this.flag=!this.flag;
+            }
+        }
+    });
+    
+
+</script>
+
+
+</body>
+
+</html>

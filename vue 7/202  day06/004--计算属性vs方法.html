@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <p>{{num1}}</p>
+    <p>{{redu}}</p>
+    <p>{{getRedu()}}</p>
+    <button @click="rewrt()">修改值</button>
+</div>
+<script src="js/vue.js"></script>
+<script>
+ var vm=new Vue({
+        el: '#app',
+        data:{
+            num1:5
+        },
+        computed:{
+            redu:function(){
+                console.log(new Date())
+               return this.num1-1
+            }
+        },
+        methods:{
+            getRedu:function(){
+                console.log(new Date())
+                return this.num1-1
+            },
+            rewrt:function(){
+                this.num1=666;
+            }
+        }
+    })
+
+    function chg(){
+        setInterval(function(){
+            console.log(vm.getRedu());
+        },1000)
+    }
+</script>
+<button onclick="chg()">按钮</button>
+</body>
+</html>

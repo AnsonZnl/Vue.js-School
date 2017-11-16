@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+</head>
+<body>
+<div id="app">
+    <my-component message='qqq'></my-component>
+    <my-component message='sss'></my-component>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("my-component",{
+        props:['message'],//传值用props
+        template:"<p>{{message}}</p>"
+    });
+    new Vue({
+        el:"#app"
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+<div id="app">
+    <father></father>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("child",{
+        props:['list'],//组件属性 自定义名称
+        template:  `
+            <ul>
+                <li v-for="value in list">{{value}}</li>
+            </ul>
+        `
+    });
+    Vue.component("father",{
+        template:`
+            <div>
+                <input type="text" v-model="cont">
+                <button @click="adds()">添加</button>
+                <child :list="fruit"></child>
+            </div>
+
+        `,
+        //<child :list="fruit"></child>//自定义名称等于data 里的fruit
+          //  <input type="text" v-model="cont">  双向数据绑定
+        data:function(){
+            return{
+                fruit:['苹果','鸭梨','草莓','苹果','鸭梨','草莓'],
+                cont:""
+            }
+        },
+        methods:{
+            adds:function(){
+                this.fruit.push(this.cont);//添加 cont  到fruit 中
+                this.cont=''; //点击后情空
+            }
+        }
+    });
+   new Vue({
+       el:"#app"
+   })
+</script>
+
+</body>
+
+</html>

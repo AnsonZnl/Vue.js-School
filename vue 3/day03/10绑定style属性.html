@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <p :style="xx">劳动最光荣</p>
+    <p :style="[xx,yy]">劳动最光荣</p>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+           xx:{color:'blue',fontSize:'30px'},
+            yy:{backgroundColor:'#f0f'}
+        }
+
+    })
+</script>
+</body>
+</html>

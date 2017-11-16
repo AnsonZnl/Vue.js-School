@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--不可以绑定在body或html上-->
+<div id="itany">
+   {{message}}
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#itany',//不限制选择器
+        data:{
+            message:'hello vue'
+        }
+    })
+</script>
+</body>
+</html>

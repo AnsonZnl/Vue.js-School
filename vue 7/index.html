@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <p v-world>{{mag}}</p>
+    <input type="text" v-inp>
+</div>
+<script src="vue.js"></script>
+<script>
+    Vue.directive("world",{
+        bind:function (el) {//自定义指令 world 名称 bind(帮顶元素时执行 之榜单一次)
+        alert(11);
+            console.log(world.name)
+    } ,
+        focus: {
+            function (el) {
+                el.focus();
+        }
+        }
+    });
+    new Vue({
+        el:"#app",
+        data:{
+            mag:"holle"
+        }
+    })
+</script>
+</body>
+</html>

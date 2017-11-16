@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="msg"/>
+    {{msg}}
+    <!-- v-once  数据只绑定一次-->
+    <h3 v-once>{{msg}}</h3>
+
+    <!-- v-pre 不编译，直接原样显示-->
+    <h3 v-pre>{{msg}}</h3>
+</div>
+<script src="exer/js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            msg:'welcome to itany'
+
+        }
+    })
+</script>
+</body>
+</html>

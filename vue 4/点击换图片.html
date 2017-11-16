@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击换图片</title>
+</head>
+<body>
+<div id="app">
+    <img @click="clk()" :src="url" alt="">
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            url:"img/1.jpg"
+        },
+        methods:{
+//            clk:function() {
+//                this.url = 'img/2.jpg'
+//            }
+            clk:function() {
+                if(this.url=='img/1.jpg'){
+                    this.url = 'img/2.jpg'
+                }else {
+                    this.url='img/1.jpg'
+                }
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

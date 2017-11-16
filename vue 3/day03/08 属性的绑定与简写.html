@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--<img v-bind:src="url" alt=""/>-->
+    <!-- 属性的简写-->
+    <img :src="url" alt="" :width="w" :height="h" />
+    <a v-bind:href="hrf">跳转</a>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            url:'img/author.jpg',
+//            为图片绑定宽高属性
+            w:'500px',
+            h:'500px',
+
+
+
+//            hrf:'http://www.baidu.com'
+            hrf:'如何知道键位的键码.html'
+        }
+    })
+</script>
+</body>
+</html>

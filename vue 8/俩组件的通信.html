@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+</head>
+<body>
+<div id="app">
+    <father></father>
+</div>
+<script src="js/vue.js"></script>
+<script>
+//<!--子组件获取父组件的值-->
+
+    Vue.component("child",{
+        props:["number"],
+        template:`
+                <h1>{{number}}</h1>
+        `
+    });
+
+    Vue.component("father",{
+        template:`
+            <div>
+                <h3>my is father</h3>
+                <child :number='num'></child>
+            </div>
+        `,
+        data:function(){
+            return{
+                num:5
+            }
+        }
+    });
+    new Vue({
+        el:"#app"
+    })
+
+</script>
+</body>
+</html>

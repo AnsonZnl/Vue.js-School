@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <img v-on:click="changePic()" v-bind:src="url">
+</div>
+<script src="js/vue.js"></script>
+<script>
+   new Vue({
+       el:'#app',
+       data:{
+           url:'img/author.jpg',
+           hrf:'img/star.jpg'
+       },
+       methods:{
+           changePic:function(){
+               this.url=this.hrf
+           }
+       }
+   })
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例属性</title>
+</head>
+<body>
+<div id="div">
+<p ref="hello">{{msg}}</p>
+<h1 ref="world">{{name}}</h1>
+</div>
+<script src="js/vue.js"></script>
+<script>
+//    vn 、、实例 属性
+//vn  实例的属性和方法
+// $el 获得绑定的元素
+// $data 获得vue里的对象（data）和属性
+// $options 获得自定义的属性和方法
+// $refs 获得所有带有ref属性的元素
+//    vn 、、实例 方法
+//
+  var vn=  new Vue({
+        el:"#div",
+      data:{
+          msg:"hello vue",
+          name:"123",
+          num:1
+      },
+      name:'jack',//自定义属性
+      age:"18",//自定义属性
+      show:function(){//自定义方法
+          console.log(111)
+      }
+    });
+//   textContent vue输出内容的方法
+console.log(vn.$refs.hello);//<p>hello vue</p>
+console.log(vn.$refs.hello.textContent);//hello vue
+console.log(vn.$refs.world);
+//    console.log(vn.$el);
+//    vn.$el.style.color='red';//DOM 就可以设置样式
+//      console.log(vn.$data);//obj
+//      console.log(vn.$data.msg);//hello vue
+//        console.log(vn.$options.name);//jack
+//        vn.$options.show();//111  直接调用
+
+
+</script>
+</body>
+</html>

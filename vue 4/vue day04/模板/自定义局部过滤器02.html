@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <h3>{{123.45678|number(3)}}</h3>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{},
+        methods:{},
+        filters:{//局部过滤器
+            number:function(data,n){
+            return data.toFixed(n)
+         }
+
+        }
+    })
+</script>
+</body>
+</html>

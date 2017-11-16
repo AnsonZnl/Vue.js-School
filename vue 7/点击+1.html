@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <my-box></my-box>
+</div>
+<script src="vue.js"></script>
+<script>
+    var data={num1:1};
+//    data 必须是函数
+    Vue.component('uname-btn',{
+        template:'<button @click="num1+=1">点击++</button>',
+        data:function (){
+            return data
+//            为每一个组件返回同一个对象引用
+        }
+    });
+    Vue.component('uname-span',{
+        template:'<span>{{num1}}</span>',
+    data:function (){
+        return data
+    }
+    });
+    //创建一个复合组件
+
+    Vue.component('my-box',{
+        template:`
+           <div>
+               <uname-btn></uname-btn>
+               <uname-span></uname-span>
+           </div>
+        `
+    });
+
+
+   new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

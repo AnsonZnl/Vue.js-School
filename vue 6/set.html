@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>set 设置属性</title>
+</head>
+<body>
+<div id="div">
+    <p>{{user. name}}</p>
+    <p>{{user. ser}}</p>
+    <button @click="adds()">添加属性</button>
+    <button @click="rede()">删除属性</button>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    //$set（设施属性的对象，属性名，属性值）   添加属性  设置属性
+    //$delete （设施属性的对象，属性名）   删除属性  设置属性
+    var vn=  new Vue({
+        el:"#div",
+        data:{
+             user:{name:"tom",age:10}
+        },
+        methods:{
+            adds:function(){
+                this.$set(this.user,'ser','male');
+                console.log(this.user)
+            },
+            rede:function(){
+                this.$delete(this.user,'ser')
+            }
+        }
+    });
+</script>
+</body>
+</html>

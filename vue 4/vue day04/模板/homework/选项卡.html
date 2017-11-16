@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+        }
+
+        #nav{
+            overflow: hidden;
+            width:300px;
+        }
+        #nav li{
+            float:left;
+            width:100px;
+            text-align: center;
+        }
+        #content{
+            overflow: hidden;
+            width:300px;
+            height:300px;
+            border:1px solid #000;
+        }
+        #content li{
+            float:left;
+            width:100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul id="nav">
+        <li v-for="(value,index) in card" @click="chg(index)">
+            {{value.name}}
+        </li>
+    </ul>
+    <ul id="content">
+        <li v-for="(value,index) in card" v-show="value.falg">
+            {{value.content}}
+        </li>
+    </ul>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            card:[
+                {name:'选项卡1',content:'aaaaaa',falg:true},
+                {name:'选项卡2',content:'bbbbbb',falg:false},
+                {name:'选项卡3',content:'cccccc',falg:false}
+            ]
+        },
+        methods:{
+            chg:function(index){
+                var len=this.card.length;
+                for(var i=0;i<len;i++){
+                    this.card[i].falg=false;
+                }
+                this.card[index].falg=true;
+            }
+        }
+    })
+</script>
+</body>
+</html>

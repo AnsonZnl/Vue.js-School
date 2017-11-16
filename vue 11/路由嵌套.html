@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+    <style>
+        .router-link-active{
+            color:orangered;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <!--查新吗字符串的方式穿残-->
+    <router-link to="/home?sname=alis&swd=123" >主页</router-link>
+    <!--rest 风格 传惨-->
+    <router-link to="/user/jack/456" >用户页</router-link>
+    <div>
+        <router-view></router-view>
+    </div>
+
+</div>
+
+    <!-- JavaScript -->
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <script>
+    var Home=Vue.component("my-home",{
+        template:
+        `
+            <h1>
+                这是主页，传过来的参数{{$route.query}}
+
+            </h1>
+        `
+    });
+    var User=Vue.component("my-user",{
+        template:
+        `
+        <div>
+            <h1>
+                用户页:这是注册穿的参数 {{$route.params}}
+                </h1 >
+                <br>
+                <router-link to="/user/regist">
+                登录页
+                </router-link>
+                <router-link to="/user/login">注册页</router-link>
+                <div>
+                    <router-view></router-view>
+                </div>
+        </div>
+        `
+    });
+    var Denlu=Vue.component("my-regist",{
+        template:
+                `
+            <h3>
+                登录
+            </h3>
+        `
+    });
+    var Zhuce=Vue.component("my-login",{
+        template:
+                `
+            <h3>
+                注册
+            </h3>
+        `
+    });
+    const myRoutes=[
+        {path:"/home",component:Home},
+        {
+            path:"/user/:uname/:upwd",
+            component:User,
+            children:[
+                {path:"regist",component:Zhuce},
+                {path:"login",component:Denlu},
+                {path:"",component:Denlu}
+            ]
+        },
+        {path:"/",component:User}
+    ];
+    var myRouter=new VueRouter({
+        routes:myRoutes
+    });
+        new Vue({
+            el:"#app",
+            router:myRouter
+        })
+    </script>
+</body>
+
+</html>

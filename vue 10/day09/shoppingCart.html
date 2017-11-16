@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+</head>
+<body>
+<div id="app">
+    <p>总计：{{total}}</p>
+    <list :fruit="cart" @adds="add" @subs="sub"></list>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('list',{
+        props:['fruit'],
+        template:`
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">名称</th>
+                        <th class="text-center">单价</th>
+                        <th class="text-center">数量</th>
+                        <th class="text-center">小计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(value,index) in fruit" class="text-center">
+                        <td>{{value.name}}</td>
+                        <td>{{value.price}}</td>
+                        <td>
+                            <button @click="add(index)">+</button>
+                            {{value.num}}
+                            <button @click="sub(index)">-</button>
+                            </td>
+
+                        <td>{{value.subprice}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        `,
+        methods:{
+            sub:function(ind){
+                this.$emit(
+                        'subs',ind
+                )
+            },
+            add:function(ind){
+                this.$emit(
+                        'adds',ind
+                )
+            }
+        }
+
+    })
+
+
+
+
+    new Vue({
+        el: '#app',
+        data:{
+            cart:[
+                {name:'香蕉',price:1,num:1,subprice:1},
+                {name:'苹果',price:2,num:1,subprice:2},
+                {name:'鸭梨',price:3,num:1,subprice:3}
+            ],
+            total:6
+        },
+        methods:{
+            add:function(index){
+                this.cart[index].num++;
+                this.cart[index].subprice=this.cart[index].price*this.cart[index].num;
+                this.getTotal()
+            },
+            sub:function(index){
+                if(this.cart[index].num>1){
+                    this.cart[index].num++;
+                    this.cart[index].subprice=this.cart[index].price*this.cart[index].num;
+                }
+                this.getTotal()
+            },
+            getTotal:function(){
+                for(var i= 0,sum=0;i<this.cart.length;i++){
+                    sum+=Number(this.cart[i].subprice)
+                }
+                this.total=sum.toFixed(2)
+            }
+        }
+    })
+</script>
+</body>
+</html>

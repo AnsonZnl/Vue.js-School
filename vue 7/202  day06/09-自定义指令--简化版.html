@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <p v-hello>{{msg}}</p>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.directive('hello',function(){
+        //bind 和update都会调用
+        alert('hello vue');
+    })
+    new Vue({
+        el: '#app',
+        data:{
+            msg:'hello vue'
+        }
+    })
+</script>
+</body>
+</html>

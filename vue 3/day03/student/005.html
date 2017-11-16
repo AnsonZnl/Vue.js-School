@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .aa{
+            color:#f00;
+            font-size: 30px;
+        }
+        .ee{
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div :class="[dd,ff]">{{msg}}</div>
+<div :style="sty">{{msg}}</div>
+<div :style="[sty,sty2]">{{msg}}</div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            msg:'hello world',
+            dd:'aa',
+            ff:'ee',
+            sty:{background:"#0ff"},
+            sty2:{color:'yellow'},
+
+
+
+
+
+            url:'img/author.jpg',
+            w:'500px',
+            h:'500px',
+//          hrf:'http://www.baidu.com'
+            hrf:'001.html'
+        }
+    })
+</script>
+</body>
+</html>

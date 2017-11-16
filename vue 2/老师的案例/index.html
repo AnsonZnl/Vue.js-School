@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>INDUSTRY</title>
+    <!--<title>Document</title> 关键字增加所搜性-->
+    <meta name="description" content="">
+    <!--移动端<meta name="keywords" content="">-->
+    <meta name="keywords" content="">
+    <!--<meta name="keywords" content="">content="123"给网站关键字增加所搜性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--做移动端一定要加他.支持手机端的neta标签<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!--为了能更好的显示-->
+    <!--这是为了让网站优先兼容最高版本的ie浏览器 -->
+    <!-- CSS -->
+    <!--bootstrap的css-->
+    <link rel="stylesheet" href="plug/bootstrap-3.2.0-dist/css/bootstrap.min.css">
+    <!--字体css-->
+    <link rel="stylesheet" href="plug/Font-Awesome-4.7.0/css/font-awesome.min.css">
+    <!--自己的css-->
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .container{
+            margin-top: 100px;
+        }
+        div{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-2 text-center">
+                <label class="control-label" for="">姓名</label>
+            </div>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" v-model="users.name">
+            </div>
+            <div class="col-xs-2 text-center">
+                <label class="control-label" for="">年龄</label>
+            </div>
+            <div class="col-xs-10 ">
+                <input type="text" class="form-control" v-model="users.age">
+            </div>
+            <div class="col-xs-2 text-center">
+                <label class="control-label" for="">邮箱</label>
+            </div>
+            <div class="col-xs-10">
+                <input type="text" class="form-control" v-model="users.email">
+            </div>
+            <div class="form-group text-center">
+                <input type="button" value="添加" class="btn btn-primary" @click="adds()">
+                <input type="button" value="重置" class="btn btn-danger">
+            </div>
+        </div>
+    </form>
+    <table class="table table-bordered">
+        <thead class="text-center">
+        <tr class="text-center">
+            <th class="text-center">编号</th>
+            <th class="text-center">用户名</th>
+            <th class="text-center">年龄</th>
+            <th class="text-center">邮箱</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(value,index) in user">
+            <td class="text-center">{{index+1}}</td>
+            <td class="text-center">{{value.name}}</td>
+            <td class="text-center">{{value.age}}</td>
+            <td class="text-center">{{value.email}}</td>
+            <td class="text-center"><button @click="delt(index)">操作</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a href="E:\JavaScript高级\10.11克隆\index.html">克隆</a>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="js/jquery-1.11.1.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="plug/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<!--自己写的js-->
+<script src="js/vue.js"></script>
+<script src="js/main.min.js"></script>
+<script>
+//    <!--@等于v-on-->
+    new Vue({
+        el:".container",
+        data:{
+            user:[
+        {name:"ksck",age:"24",email:"kaljd@qq.com"},
+        {name:"rose",age:"22",email:"kaljd@126.com"},
+        {name:"lily",age:"29",email:"kaljd@163.com"}
+    ],
+            users:{}
+        },
+//        用克隆解决每次添加数据和上一次添加不重复的bug
+        //users:{} 把 users 克隆一份在遍历  克隆是一个改变一个不会跟着改变  因为对象储存的是一个地址 所以一个改变后边就都跟着改变 用克隆改变后边添加的数据不予前面的重复
+        methods:{
+            adds:function (){
+                this.user.push(this.users);
+                //this.users={};
+            },
+            delt:function (index){
+                this.user.splice(index,1);
+            }
+        }
+    })
+</script>
+</body>
+
+</html>

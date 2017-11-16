@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="hids()">点击隐藏</button>
+    <div style="width:100px;height:100px;background: #f00" v-if="flag"></div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    //v-show:控制显示或隐藏
+    //v-if:控制显示或隐藏
+    new Vue({
+        el: '#app',
+        data:{
+            flag:true
+        },
+        methods:{
+            hids:function(){
+                this.flag=!this.flag
+            }
+        }
+    })
+</script>
+</body>
+</html>

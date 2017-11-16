@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+</head>
+<body>
+<div id="app">
+   <!--<p>{{123.456789465|过滤器的名称（参数）}}</p>-->
+   <p>{{123.456789465|number(2)}}</p>
+    <p>{{132456789.3644845|number1(3)}}</p>
+    <p>{{5|zo}}</p>
+</div>
+<script src="js/vue.js"></script>
+<script>
+//    <!--全局过滤器 卸载外边的全局
+    Vue.filter('number1',function(data,n){
+        return data.toFixed(n);
+    });
+    Vue.filters('zo',function(){
+        return data<10?'0'+data:data;
+    });
+    new Vue({
+//        写在里面的是局部过滤器
+        el:"#app",
+        data:{},
+        methods:{},
+        filters:{
+//            过滤器名称：function （）{}
+            number:function(data,n){
+                return data.toFixed(n);//保留n位小数  data  内容
+             }
+        }
+    })
+</script>
+</body>
+</html>

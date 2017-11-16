@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+</head>
+<body>
+<!--
+组件：组件可以扩展 HTML 元素，封装可重用的代码
+-->
+<div id="app">
+    <my-pom></my-pom>
+    <my-com></my-com>
+</div>
+<script src="vue.js"></script>
+<script>
+    //全局组件  组件名称v:my-pom
+Vue.component("my-pom",{
+    template:"<p>holle vue</p>"//定义组见的标签
+});
+
+//局部组件
+var chlit={
+  template:"<a href='#'>holle vue</a>"
+};
+new Vue({
+    el:"#app",
+    components:{  //所有的局部使用后面加  s  全局不加s
+        "my-com":chlit
+    }
+})
+</script>
+
+</body>
+</html>

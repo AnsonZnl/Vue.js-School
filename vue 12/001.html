@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+   <div>
+       <router-view></router-view>
+   </div>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+
+    var Mains=Vue.component("mains",{
+
+        template:
+        `
+            <div>
+                <h1>用户名为:{{uname}}</h1>
+            </div>
+        `,
+        data:function(){
+            return{
+                uname:""
+            }
+        },
+        beforeMount:function(){
+            this.uname=this.$route.params.myname
+        }
+    });
+    var Not=Vue.component("not",{
+        template:
+        `
+            <div>
+                <h1>404 not undfnind</h1>
+            </div>
+        `
+    });
+    var Login=Vue.component("login",{
+        template:
+        `
+            <div>
+                <h1>这是登录页</h1>
+                <input type="text" v-model="user_name" placeholder="请输入">
+                <button @click="toMain">按钮</button>
+
+            </div>
+        `,
+        data:function(){
+            return{
+                user_name:""
+            }
+        },
+        methods:{
+            toMain:function(){
+                this.$router.push('/mains/'+this.user_name)
+            }
+        }
+    });
+    const myRoutes=[
+        {path:"/login",component:Login},
+        {path:"/mains/:myname",component:Mains},
+        {path:"/",component:Login},
+        {path:"*",component:Not}
+    ];
+    var myRouter=new VueRouter({
+        routes:myRoutes
+    });
+    new Vue({
+        el:"#app",
+        router:myRouter
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    li{
+        list-style: none;
+    }
+    .pa{
+        float: left;
+    }
+
+    #pa li{
+        float: left;
+    }
+   #pa li img{
+        width: 200px;
+        height: 200px;
+    }
+    #butt{
+       float: left;
+   }
+    #butt li{
+        float: left;
+        padding:15px 15px;
+        border:1px solid #00CCFF;
+        font-size: 15px;
+    }
+</style>
+<body>
+<div id="itye">
+    <div id="pa">
+    <ul>
+        <li> <img :src="url" alt="" ></li>
+    </ul>
+    </div>
+    <div id="butt">
+
+        <ul>
+            <li v-for="(value,index) in  picList"  @click="chang(index)">{{index+1}}</li>
+        </ul>
+    </div>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#itye",
+        data:{
+            arr:[1,2,3,4,5],
+            url:"../img/cat.jpg",
+            picList:["../img/cat.jpg","../img/dog.jpg","../img/boday.jpg","../img/boganboday.jpg","../img/apple.jpg"]
+        },
+        methods:{
+     chang:function(index){
+         this.url=this. picList[index]
+     }
+        }
+    })
+
+</script>
+</body>
+</html>

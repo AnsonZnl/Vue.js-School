@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!-- 键盘事件:@keydown  @keyup-->
+    用户名1：<input type="text" @keydown="show($event)"/>
+    <!-- 简化按键对象-->
+    用户名2：<input type="text" @keydown.13="print()"/>
+    <!-- 回车也叫enter,所以下这中写法也对-->
+    用户名2：<input type="text" @keydown.enter="print()"/>
+    用户名3：<input type="text" @keydown.up="ups()"/>
+
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        methods:{
+            show:function(e){
+//                console.log(e.keyCode);
+                if(e.keyCode==13){
+                    console.log('您按了回车')
+                }
+            },
+            print:function(){
+                console.log('您按下了回车')
+            },
+            ups:function(){
+                console.log('您按下了方向键上')
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

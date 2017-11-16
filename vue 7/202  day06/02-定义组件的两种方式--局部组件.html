@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--完成组件的调用-->
+    <my-component></my-component>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    var child={
+        template:'<div>my first vue component</div>'
+    };
+    new Vue({
+        el: '#app',
+        components:{
+            'my-component':child
+        }
+    })
+</script>
+</body>
+</html>

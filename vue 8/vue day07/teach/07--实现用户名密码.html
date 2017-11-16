@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <father></father>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('u-label',{
+        props:['labelName'],
+        template:`
+            <label>{{labelName}}</label>
+        `
+    });
+    Vue.component('u-input',{
+        props:['tips'],
+        template:`
+            <input type="text" :placeholder="tips">
+        `
+    });
+    Vue.component('u-button',{
+        props:['btnName'],
+        template:`
+            <button>{{btnName}}</button>
+        `
+    });
+
+    Vue.component('father',{
+        template:`
+            <form>
+                <u-label labelName="用户名"></u-label>
+                <u-input tips="请输入用户名"></u-input>
+                <br/>
+                <u-label labelName="密码"></u-label>
+                <u-input tips="请输入密码"></u-input>
+                <br/>
+                <u-button btnName="注册"></u-button>
+                <u-button btnName="登陆"></u-button>
+            </form>
+        `
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

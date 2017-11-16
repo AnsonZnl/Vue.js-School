@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+</head>
+<body>
+<div id="app">
+    <list v-bind:fruit="fruitList"></list>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('list',{
+        props:['fruit'],
+        template:`
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">名称</th>
+                        <th class="text-center">单价</th>
+                        <th class="text-center">数量</th>
+                        <th class="text-center">小计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="value in fruit" class="text-center">
+                        <td>{{value.name}}</td>
+                        <td>{{value.price}}</td>
+                        <td>
+                            <button>-</button>
+                            {{value.num}}
+                            <button>+</button>
+                        </td>
+                        <td>{{value.sunprice}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `
+    })
+    new Vue({
+        el: '#app',
+        data:{
+            fruitList:[
+                {name:'香蕉',price:1,num:1,sunprice:1},
+                {name:'苹果',price:2,num:1,sunprice:2},
+                {name:'鸭梨',price:3,num:1,sunprice:3}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

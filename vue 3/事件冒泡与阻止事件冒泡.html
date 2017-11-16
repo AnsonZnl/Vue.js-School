@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件冒泡与阻止事件冒泡</title>
+</head>
+<body>
+<!--<div id="app" @click="apps()">-->
+    <!--<p @click="inner()">-->
+        <!--<button @click.stop="btn()">事件冒泡</button>-->
+    <!--</p>-->
+<!--</div>-->
+<div id="app" @click="apps()">
+    <p @click="inner()">
+        <button @click="btn($event)">事件冒泡</button>
+    </p>
+</div>
+<!--事件冒泡是 从里到外 执行事件 3 2 1-->
+<!--事件冒泡是 从里到外 执行事件 阻止后弹一个 3-->
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        methods:{
+            apps:function(){
+                alert('1')
+            }, inner:function(){
+                alert('2')
+            }, btn:function(){
+                alert('3');
+//           js 阻止事件冒泡      e.stopPropagation();
+            }
+
+        }
+    })
+</script>
+</body>
+</html>

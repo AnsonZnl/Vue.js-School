@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <componenta></componenta>
+    <componentb></componentb>
+    <componentc></componentc>
+
+</div>
+<script src="js/vue.js"></script>
+<script>
+    var bus=new Vue();
+
+    Vue.component('componenta',{
+        template:`
+
+            <div>
+              <h1>我是组件a:{{name}}</h1>
+              <button @click="send()">给c组件传值</button>
+            </div>
+        `,
+        methods:{
+            send:function(){
+                bus.$emit(
+                        'data-a',
+                        this.name
+                )
+            }
+        },
+        data:function(){
+            return{
+                name:'tom'
+            }
+        }
+    })
+    Vue.component('componentb',{
+        template:`
+
+            <div>
+              <h1>我是组件b:{{age}}</h1>
+            </div>
+        `,
+        data:function(){
+            return{
+                age:18
+            }
+        }
+    })
+    Vue.component('componentc',{
+        template:`
+
+            <div>
+              <h1>我是组件c:{{name}}</h1>
+            </div>
+        `,
+        data:function(){
+            return{
+                name:""
+            }
+        },
+        mounted:function(){
+            bus.$on('data-a',(name)=>{
+                this.name=name
+            })
+        }
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

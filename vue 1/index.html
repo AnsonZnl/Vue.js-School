@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>vue</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS --><link rel="stylesheet" href="css/main.min.css">
+</head>
+<body>
+<script src="vuejs/vue.js"></script>
+<!--案例一-->
+<!--<div id="div1">-->
+    <!--{{name}}-->
+    <!--{{age}}-->
+    <!--{{arr}}-->
+    <!--{{user}}-->
+<!--</div>-->
+<!--<script>-->
+    <!--var div1=new Vue({-->
+        <!--el:'#div1',//选择器 # .-->
+        <!--data:{//存放数据 展现数据-->
+            <!--name:'jack',-->
+            <!--age:'19',-->
+            <!--arr:[1,2,3,45,6],-->
+            <!--user:{name:'znl',age:'18'}-->
+        <!--}-->
+    <!--});-->
+<!--</script>-->
+
+<!--案例二-->
+<!--//    v- 指令-->
+<!--//    v-model:双向数据绑定-->
+<!--<div id="div2">-->
+    <!--<input type="text" v-model="name">-->
+    <!--{{name}}-->
+<!--</div>-->
+<!--<script>-->
+    <!--new Vue({-->
+        <!--el: '#div2',-->
+        <!--data:{-->
+            <!--name:'znl122'-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+
+<!--案列三 v-for-->
+<!--v-for 执行循环操作-->
+<!--<div id="div3">-->
+    <!--<ul>-->
+        <!--<li v-for="shuzi in arr">{{shuzi}}</li>-->
+        <!--<li v-for="text in obj">{{text}}</li>-->
+        <!--<li v-for="(index,value) in arr">{{value}}-{{index}}</li>-->
+        <!--<li v-for="(index,txt) in obj">{{txt}}-{{index}}</li>-->
+        <!---->
+    <!--</ul>-->
+<!--</div>-->
+<!--<script>-->
+    <!--new Vue({-->
+        <!--el:'#div3',-->
+        <!--data:{-->
+            <!--arr:[1,2,3,4,5],-->
+            <!--obj:{-->
+                <!--name:"大缺",-->
+                <!--age:"38",-->
+                <!--sex:'男',-->
+                <!--婚姻:'未婚',-->
+                <!--学历:'胎教'-->
+            <!--}-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+
+<!--案列四-->
+<!--v-on 执行事件-->
+<div id="div4">
+    <button v-on:click="alt()">按钮</button>
+</div>
+<script>
+    new Vue({
+        el:'#div4',
+        data:{
+
+        },
+        methods:{//function 写到methods 中
+            alt:function(){
+                alert('hello Vue')
+            }
+        }
+    })
+</script>
+</body>
+
+</html>

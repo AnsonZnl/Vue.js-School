@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+<div id="app">
+    <my-component></my-component>
+    <my-components></my-components>
+</div>
+
+
+
+<script src="js/vue.js"></script>
+<script>
+//    全局组件
+    Vue.component("my-component",{ //定义组件的标签
+        template:"<button @click='fn()'>{{msg}}</button>",//展示的标签，
+        data:function(){
+            return {  //组件里data是一个对象  而且需要return一个对象
+                msg:"aaa"
+            }
+        },
+        methods:{//方法和在实列中一样
+            fn:function(){
+                alert(1);///点击弹出1 组件里写东西和实列里一样 只有data例外 必须是和函数
+            }
+        }
+});
+
+//    局部 组件
+    var chilg={//局部组件写定义标签到外头  局部组件写到实列上边
+        template:"<h1>13</h1>"
+    };
+    new Vue({
+        el:"#app",
+        components:{
+            "my-components":chilg
+        }
+    })
+
+</script>
+</body>
+
+</html>

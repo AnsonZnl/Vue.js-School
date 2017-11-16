@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业</title>
+	</head>
+	<body>
+		<div id="app">
+			<my-inp></my-inp>
+		</div>
+		<script src="js/vue.js"></script>
+		<script>
+			
+			Vue.component("my-li",{
+				props:["ulist"],
+				 template:`
+				 	<ul v-for='value in ulist'>
+						<li>{{value.name}}</li>
+					</ul>
+					`
+			});
+			
+			Vue.component("my-inp",{
+				template:`
+				<div>
+					<input>
+					<button>添加</button>
+					<my-li :ulist='lists'></my-li>
+				</div>
+				`,
+				data:function(){
+					return {
+						lists:[{name:'苹果'},{name:'西红柿'},{name:'鸭梨'},{name:'橘子'},{name:'香蕉'}]
+					}
+				}
+			});
+			
+			
+		new Vue({
+        el:"#app"
+    })
+			
+		</script>
+	</body>
+</html>

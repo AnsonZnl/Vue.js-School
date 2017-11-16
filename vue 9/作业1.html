@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业1</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <my-table :userz="users" :numz="nums" v-on:addsz="plus"></my-table>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("my-table",{
+        props:["userz","numz"],
+        template:`
+            <table class="table text-center table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td>名称</td>
+                        <td>单价</td>
+                        <td>数量</td>
+                        <td>小计</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="value in userz">
+                        <td>{{value.name}}</td>
+                        <td>{{value.price}}</td>
+                        <td>
+                            <button @click="plus()">+</button>
+                                {{value.num}}
+                            <button @click="del()">-</button>
+                        </td>
+                        <td>{{value.num*value.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `,
+        methods:{
+            adds:function(){
+                this.numz++,
+                this.$emit(//组件自动义 属性 （方法）
+                        'addsz'//自定义 事件名称 用于传递实列中的事件
+                )
+            }
+        }
+    });
+    new Vue({
+        el:"#app",
+        data:{
+            users:[
+                {name:"苹果",price:1,num:1},
+                {name:"鸭梨",price:2,num:1},
+                {name:"香蕉",price:3,num:1}
+            ]
+        },
+       methods:{
+           plus:function(){
+               this.nums++;
+           }
+       }
+    })
+</script>
+</body>
+</html>

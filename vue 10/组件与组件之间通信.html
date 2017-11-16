@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+<div id="app">
+
+    <com1></com1>
+    <com2></com2>
+    <com3></com3>
+</div>
+
+    <script src="js/vue.js"></script>
+    <script>
+<!--
+//    mounted :挂载的Dom时
+-->
+        Vue.component("com1",{
+            template:
+            `
+                <div>
+                    <h1>我是组件a:{{num}}</h1>
+                    <button>给c传递name </button>
+                </div>
+            `,
+            data:function(){
+                return{
+                    num:'李明'
+                }
+            },
+            methods:{
+                send:function(){
+
+                }
+            }
+        });
+        Vue.component("com2",{
+            template:
+            `
+                <div>
+                <h1>我是组件b:{{age}}</h1>
+                </div>
+            `,
+            data:function(){
+                return{
+                    age:18
+                }
+            }
+        });
+        Vue.component("com3",{
+            template:
+            `
+                <div>
+                <h1>我是组件c:{{sex}}</h1>
+                </div>
+            `,
+            data:function(){
+                return{
+                    sex:""
+                }
+            }
+        });
+    new Vue({
+        el:"#app"
+    })
+    </script>
+</body>
+
+</html>

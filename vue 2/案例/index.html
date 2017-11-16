@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue案例1</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+    body{
+        text-align: center;
+    }
+    h2{
+        margin-top: 20px;
+    }
+    p{
+        font-size: 19px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    input{
+        width: 90%;
+        height: 40px;
+        border:solid 1px #a8a8a8;
+        padding-left: 20px;
+    }
+    button{
+        color: #fff;
+        width: 70px;
+        height: 45px;
+        border-radius: 5px;
+    }
+    button:last-child{
+        background: #49c0ee;
+    }
+    button:first-child{
+        background: #2cee76;
+    }
+    th,td{
+        border:solid 1px #a8a8a8;
+        height: 40px;
+    }
+    table{
+        width: 90%;
+        margin: auto;
+    }
+    table tr td button{
+        background-color: #eecb2e !important;
+    }
+    .center{
+        text-align: left;
+        margin-left: 55px;
+    }
+</style>
+<body>
+<div id="div1">
+    <h2>添加用户</h2>
+    <p class="center">姓名:</p>
+    <input type="text" placeholder="请输入姓名" v-model="name">
+    <p  class="center">年龄:</p>
+    <input type="text" placeholder="请输入年龄" v-model="age">
+    <p  class="center">邮箱:</p>
+    <input type="text" placeholder="请输入邮箱" v-model="Email">
+    <p>
+        <button v-on:click="add()">添加</button>
+        <button v-on:click="del()">重置</button>
+    </p>
+    <hr>
+    <p>用户列表</p>
+    <table border="2" cellspacing="0">
+        <tbody>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>邮箱</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="(value,index) in uname">
+            <td>{{index+1}}</td>
+            <td>{{value.name}}</td>
+            <td> {{value.age}}</td>
+            <td> {{value.Email}}</td>
+            <td><button v-on:click="shanchu(index)">删除</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+ <script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#div1',
+        data:{
+            arr:{
+                name:'',
+                age:'',
+                Email:''
+            },
+            uname:[
+                {name:'tom',age:'24',Email:'abc@126.com'},
+                {name:'amy',age:'24',Email:'abc@126.com'},
+                {name:'jack',age:'24',Email:'abc@126.com'}
+            ]
+        },
+        methods:{
+            add:function (){
+//                this.arr.push(this.name);
+//                this.arr.push(this.age);
+//                this.arr.push(this.Email);
+                this.uname.push(this.arr);
+            },
+            shanchu:function(index){
+                this.uname.splice(index,1);
+            },
+            del:function(){
+                var inp=document.querySelectorAll('input');
+                for(var i=0;i<inp.length;i++){
+                    inp[i].value='';
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="itany">
+    <!--<button v-on:click="hide()">点击隐藏</button>-->
+    <button v-on:click="hide()">点击隐藏</button>
+    <div style="width: 100px;height:100px;background: #f00;" v-show="seen"></div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#itany',
+        data:{
+            seen:true
+        },
+        methods:{
+            hide:function(){
+                this.seen=!this.seen;
+            }
+        }
+    })
+</script>
+</body>
+</html>

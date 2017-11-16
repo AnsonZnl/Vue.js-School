@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="itany">
+    <ul>
+        <!--<li v-for="value in user">-->
+            <!--{{value.id}}-->
+            <!--{{value.name}}-->
+            <!--{{value.age}}-->
+        <!--</li>-->
+        <li v-for="(value,index) in user">
+            {{index+1}}
+            {{value.id}}
+            {{value.name}}
+            {{value.age}}
+        </li>
+    </ul>
+
+</div>
+<script src='js/vue.js'></script>
+<script>
+    new Vue({
+        el:'#itany',
+        data:{
+            user:[
+                {id:1001,name:'jack',age:18},
+                {id:1002,name:'tom',age:19},
+                {id:1001,name:'rose',age:20}
+               ]
+        }
+    })
+</script>
+</body>
+</html>

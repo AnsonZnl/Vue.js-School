@@ -1,0 +1,183 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+header,div{
+    border:1px solid #000;
+    margin:0 auto;
+}
+ul{
+    border:1px solid #000;
+}
+/*pc*/
+@media screen and (min-width: 992px){
+    .header{
+        width:970px;
+        overflow: hidden;
+    }
+    .logo{
+        float:left;
+        width:20%;
+    }
+    .nav{
+        float:right;
+        width:60%;
+    }
+    .nav ul{
+        overflow: hidden;
+    }
+    .nav ul li{
+        float:left;
+        width:16.6%;
+        text-align: center;
+    }
+    /*/!*banner*!/*/
+    .banner{
+        width:970%;
+    }
+    .banner img{
+        max-width:100%;
+    }
+    /*ourp*/
+    .ourp{
+        width:970px;
+    }
+    /*crmc*/
+    .crmc{
+        width:970px;
+        overflow: hidden;
+    }
+    .chem{
+        width:25%;
+        float:left;
+        text-align: center;
+    }
+    .team{
+        overflow: hidden;
+        width:970px;
+    }
+    .left{
+        float:left;
+        width: 50%;
+    }
+    .left>img{
+        max-width: 100%;
+    }
+    .right{
+        float:left;
+        width:50%;
+    }
+    /*footer*/
+    .footer{
+        width: 970px;
+        overflow: hidden;
+    }
+    .foot{
+        float:left;
+        width:25%;
+        text-align: center;
+    }
+}
+/*pad*/
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .header{
+        width:750px;
+        overflow: hidden;
+    }
+    .logo{
+        float:left;
+        width:20%;
+    }
+    .nav{
+        float:right;
+        width:60%;
+    }
+    .nav ul{
+        overflow: hidden;
+    }
+    .nav ul li{
+        float:left;
+        width:16.6%;
+        text-align: center;
+    }
+    /*banner*/
+    .banner{
+        width:750px;
+    }
+    .banner img{
+        max-width:100%;
+    }
+    .ourp{
+        width:750px;
+    }
+    /*crmc*/
+    .crmc{
+        width:750px;
+        overflow: hidden;
+    }
+    .chem{
+        width:50%;
+        float:left;
+        text-align: center;
+    }
+    /*footer*/
+    .footer{
+        width: 750px;
+        overflow: hidden;
+    }
+    .foot{
+        float:left;
+        width:50%;
+        text-align: center;
+    }
+}
+/*phone*/
+@media screen and (max-width: 767px){
+    .header{
+        width: 100%;
+    }
+    .logo{
+        width: 100%;
+        text-align: center;
+    }
+    .nav{
+        width: 100%;
+    }
+    .nav li{
+        width: 100%;
+        text-align: center;
+    }
+    /*banner*/
+    .banner{
+        width:100%;
+    }
+    .banner img{
+        max-width:100%;
+    }
+    .ourp{
+        width:100%;
+    }
+    /*crmc*/
+    .crmc{
+        width:100%;
+    }
+    .chem{
+        width:100%;
+        text-align: center;
+    }
+    /*footer*/
+    .footer{
+        width: 100%;
+    }
+    .foot{
+        width:100%;
+        text-align: center;
+    }
+}

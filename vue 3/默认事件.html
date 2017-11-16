@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>默认事件</title>
+</head>
+
+<body>
+<div id="app">
+    <a href="#" @click.prevent="show($event)">跳转</a>
+</div>
+<!--$evenr 事件对象-->
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        methods:{
+            show:function(){
+                console.log('11');
+//                e.preventDefault(); //js 阻止默认行为
+            }
+        }
+    })
+</script>
+</body>
+</html>

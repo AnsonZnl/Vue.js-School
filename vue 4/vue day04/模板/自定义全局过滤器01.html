@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!-- 如果是个位数就补一位，成为08-->
+    <h3>{{8|addZero}}</h3>
+
+    <!-- 保留三位小数-->
+    <h3>{{12.345678|number(3)}}</h3>
+</div>
+<script src="exer/js/vue.js"></script>
+<script>
+    /**自定义全局过滤器**/
+    Vue.filter('addZero',function(data){
+//        console.log(data)
+        return data<10?'0'+data:data;
+    }),
+
+    Vue.filter('number',(data,n)=>{
+        return data.toFixed(n)
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

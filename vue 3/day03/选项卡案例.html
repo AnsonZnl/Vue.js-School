@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡案例</title>
+</head>
+<body>
+<div id="div1">
+    <table border="1">
+        <thead v-for="value in arr">
+            <tr>{{value.xvk1}}</tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+        </tbody>
+    </table>
+</div>
+<script src="js/vue.js"></script>
+<script>
+new Vue({
+    el:"#div1",
+    data:{
+        arr:[
+            {xvk1: "选项卡1"},
+            {xvk2: "选项卡2"},
+            {xvk3: "选项卡3"}
+        ]
+    },
+    methods:{
+
+    }
+})
+</script>
+
+</body>
+</html>

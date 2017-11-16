@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p>aaaa <span v-cloak>{{msg}}</span></p>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            msg:'hello vue'
+        },
+        created:function(){
+            alert(1111)
+        }
+    })
+</script>
+</body>
+</html>

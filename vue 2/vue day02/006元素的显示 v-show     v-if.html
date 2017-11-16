@@ -1,0 +1,33 @@
+   <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>v-show   v-if</title>
+</head>
+<body>
+<div id="itany">
+    <button v-on:click="change()">点击按钮隐藏</button>
+    <button v-on:click="trans()">点击按钮显示</button>
+    <button v-on:click="flag=!flag">显示隐藏来回切换</button>
+    <div style="width:100px;height:100px;background:#f00" v-if="flag">欢迎光临</div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#itany',
+        data:{
+//            flag:true //默认显示，点击按钮隐藏
+            flag:false  //默认隐藏，点击按钮显示
+        },
+        methods:{
+            change:function(){
+                this.flag=false; //隐藏
+            },
+            trans:function(){
+                this.flag=true;  //显示
+            }
+        }
+    })
+</script>
+</body>
+</html>

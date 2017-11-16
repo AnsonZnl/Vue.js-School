@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <my-form></my-form>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('my-label',{
+        props:['message'],
+        template:'<label>{{message}}</label>'
+    });
+    Vue.component('my-input',{
+        template:'<input >'
+    });
+    Vue.component('my-button',{
+        props:['content'],
+        template:'<button>{{content}}</button>'
+    });
+
+
+    Vue.component('my-form',{
+        template:`
+          <form>
+            <my-label message="用户名"></my-label>
+            <my-input></my-input>
+            <my-label message="密码"></my-label>
+            <my-input></my-input>
+            <my-button content="注册"></my-button>
+            <my-button content="登陆"></my-button>
+          </form>
+        `
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

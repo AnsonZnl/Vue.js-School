@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <my-component></my-component>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('my-component',{
+        template:`
+        <div>
+            <p>{{num}}</p>
+            <button @click="adds()">按钮</button>
+        </div>
+        `,
+
+        data:function(){
+            return{
+                num:0
+            }
+        },
+        methods:{
+            adds:function(){
+                this.num++
+            }
+        }
+    })
+
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>

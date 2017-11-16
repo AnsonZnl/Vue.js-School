@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+        .container{
+            margin-top: 100px;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <form action="" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-1">
+                <label for="" class="control-label">姓名</label>
+            </div>
+            <div class="col-xs-11">
+                <input type="text" class="form-control" v-model="users.name"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-1">
+                <label for="" class="control-label">年龄</label>
+            </div>
+            <div class="col-xs-11">
+                <input type="text" class="form-control" v-model="users.age"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-1">
+                <label for="" class="control-label">邮箱</label>
+            </div>
+            <div class="col-xs-11">
+                <input type="text" class="form-control" v-model="users.email"/>
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <input type="button" value="添加" class="btn btn-primary" @click="adds()"/>
+            <input type="button" value="重置" class="btn btn-danger" />
+        </div>
+    </form>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th class="text-center">编号</th>
+            <th class="text-center">用户名</th>
+            <th class="text-center">年龄</th>
+            <th class="text-center">邮箱</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" v-for="(value,index) in user">
+           <td>{{index+1}}</td>
+            <td>{{value.name}}</td>
+            <td>{{value.age}}</td>
+            <td>{{value.email}}</td>
+            <td><button @click="delt(index)">操作</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vue.js"></script>
+<script>
+new Vue({
+    el:".container",
+    data:{
+        user:[
+            {name:'jack',age:18,email:'jack@126.com'},
+            {name:'rose',age:19,email:'rose@126.com'},
+            {name:'lily',age:20,email:'lily@126.com'}
+        ],
+        users:{}
+    },
+    methods:{
+        adds:function(){
+            this.user.push(this.users);
+            this.users={}
+        },
+        delt:function(index){
+            this.user.splice(index,1);
+        }
+    }
+
+})
+</script>
+</body>
+</html>

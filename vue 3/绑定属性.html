@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定属性</title>
+</head>
+<style>
+    .aa{
+        width: 50px;
+        height: 60px;
+        background: #000;
+        color: red;
+    }
+    .ee{
+        background: rebeccapurple;
+    }
+</style>
+<body>
+<!--
+    v-model
+    v-for
+    v-on  @
+    v-show
+
+    v-bind 绑定属性  简写  ：src'url
+    v-bind:属性名=‘’
+    先把class 绑定到js 中 dd='aa' 然后在绑定dd即可
+    :class='dd'
+    dd='aa'
+    style
+
+-->
+<div id="app">
+    <a v-bind:href="hf" v-bind:width="w" v-bind:height="h">da da da da ds a dsa sd</a>
+    <img v-bind:src="url" v-bind:width="w" v-bind:height="h" alt="">
+    <!--class-->
+    <div :class="dd">{{msg}}</div>
+    <div :class="[aa,dd]">{{msg}}</div>
+    <!--style-->
+    <div :style="sty">{{msg}}</div>
+    <div :style="[sty,sty2]">{{msg}}</div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue ({
+        el:"#app",
+        data:{
+            url:'img/p1.gif',
+            w:'900px',
+            h:"900px",
+            hf:'index.html',
+            msg:'hole world',
+            dd:'aa ee',
+            sty:{background:"#f0f0f0"},
+            sty2:{color:"#ff0"}
+        }
+    })
+</script>
+</body>
+</html>

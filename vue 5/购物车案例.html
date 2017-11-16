@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车案例</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        #div1{
+            width: 600px;
+            margin:auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <table  class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">编号</th>
+                <th class="text-center">名称</th>
+                <th class="text-center">单价</th>
+                <th class="text-center">数量</th>
+                <th class="text-center">总价</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(value,index) in user">
+            <td class="text-center">{{index+1}}</td>
+            <td class="text-center">{{value.name}}</td>
+            <td class="text-center">{{value.price}}</td>
+            <td class="text-center">
+                <button @click="adds(index)">+</button>
+                {{value.num}}
+                <button @click="del(index)">-</button></td>
+            <td class="text-center">{{value.subprice}}</td>
+        </tr>
+        <tr>
+            <td colspan="5">共计: <span id="zj">{{total}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--<script src="js/jquery-1.11.3.js"></script>-->
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#div1",
+        data:{
+            user:[
+                {name:"香蕉",price:"1",num:"1",subprice:"1"},
+                {name:"苹果",price:"2",num:"2",subprice:"2"},
+                {name:"苹果",price:"3",num:"3",subprice:"3"}
+            ],
+            total:6
+        },
+        methods:{
+            adds:function(index){//当前的index
+                this.user[index].num++;//当前的 index
+                this.user[index].subprice=this.user[index].price*this.user[index].num; //总计=单价*数量
+                this.getTotal();
+            },
+            del:function(index){
+                if(this.user[index].num>1){
+                    this.user[index].num--;
+                    this.user[index].subprice=this.user[index].price*this.user[index].num;
+                    this.getTotal();
+                }else {
+                    alert('购买数量不能为负数！')
+                }
+
+            },
+            getTotal:function(){
+                for(i=0,sum=0;i<this.user.length;i++){
+                    sum+=Number(this.user[i].subprice);
+                }
+                this.total=sum.toFixed(2);
+            }
+        }
+    })
+</script>
+</body>
+</html>
