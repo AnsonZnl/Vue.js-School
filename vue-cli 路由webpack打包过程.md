@@ -55,6 +55,7 @@ export default {
 
 ``
 10. Detail.vue 里写：
+``
 <template>
              <div>  
             <h1>{{arr}}</h1>
@@ -73,13 +74,10 @@ data:function(){
             this.arr=this.$route.params.xiabiao;
         }
 }
-</script>``
-
+</script>
 ``
 11. Mains.vue里写：
 ``
-
-     
        <template>
             <div>
                 <h1>
