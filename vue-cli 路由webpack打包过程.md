@@ -143,3 +143,4 @@ export default{
 ]
 }
 ```
+13. ```cnpm run dev```启动服务器
