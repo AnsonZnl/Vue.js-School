@@ -126,7 +126,7 @@ new Vue({
 })
 
 ```
-13. src里写一个 router.config.js 配置路由：
+13. src里新建一个 router.config.js 文件配置路由：
 ```
 import Mains from "./components/Mains.vue"
 import Detail from "./components/Detail.vue"
@@ -137,7 +137,9 @@ export default{
     routes:[
     {path:'/mains',component:Mains},
     {path:'/detail/:xiabiao',component:Detail},
+//路径 ：xiabiao 传递的数据
     {path:'/',component:Mains}
+//默认打开的页面是Mains页面（组件）
 ]
 }
 ```
