@@ -7,7 +7,7 @@
 6. 开启虚拟服务器 ``npm run dev``
 7. 下载路由 ``cnpm install vue-router -S``
 8. 打开dome01里的main.js
-``
+```
 import Vue from 'vue'
 import vueRouter from "vue-router"
 //引进路由
@@ -20,7 +20,7 @@ new Vue({
   render: h => h(App)
 })
 
-``
+```
 9. 在scr里新建components文件。在components文件里新建两个组件文件Mains.vue和Deail.vue
 10. 在App.vue里写：
 ```
