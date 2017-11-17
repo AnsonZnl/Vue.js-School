@@ -6,23 +6,8 @@
 5. 下载webpack-simple的依赖 ``cnpm install``
 6. 开启虚拟服务器 ``cnpm run dev``
 7. 下载路由 ``cnpm install vue-router -S``
-8. 打开dome01里的main.js
-```
-import Vue from 'vue'
-import vueRouter from "vue-router"
-//引进路由
-import App from './App.vue'
-
-Vue.use(vueRouter)
-//使用路由
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
-
-```
-9. 在scr里新建components文件。在components文件里新建两个组件文件Mains.vue和Deail.vue
-10. 在App.vue里写：
+8. 在scr里新建components文件。在components文件里新建两个组件文件Mains.vue和Deail.vue
+9. 在App.vue里写：
 ```
 <template>
   <div id="app">
@@ -120,7 +105,7 @@ data:function(){
     }
         </script>
 ```
-13. main.js里改为：
+12. main.js里改为：
 
 ```
 import Vue from 'vue'
@@ -141,7 +126,7 @@ new Vue({
 })
 
 ```
-14. src里写一个 router.config.js 配置路由：
+13. src里写一个 router.config.js 配置路由：
 ```
 import Mains from "./components/Mains.vue"
 import Detail from "./components/Detail.vue"
