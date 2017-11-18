@@ -45,7 +45,8 @@ export default {
              <div>  
             <h1>{{arr}}</h1>
             <h2>索引是{{this.$route.params.xiabiao}}</h2>
-        </div>
+            //接受Mains的传过来的值
+        </div>
 </template>
 <script>
 export default{
@@ -57,6 +58,7 @@ data:function(){
         },
         beforeMount:function(){
             this.arr=this.$route.params.xiabiao;
+            // //接受Mains的传过来的值
         }
 }
 </script>
@@ -73,8 +75,8 @@ data:function(){
                 <p v-show="flg">{{no}}</p>
                 <ul>
                     <li v-for="(value,index) in num"><router-link :to="'/detail/'+index">{{value}}</router-link></li>
-                    <!--<li v-for="(value,index) in num"><router-link to="/datai/pp[p/p;pl">{{value}}</router-link></li>-->
-                </ul>
+                  //:to="'/detail/'+index" 传一个index
+               </ul>
                 </div>
         </template>
         <script>
