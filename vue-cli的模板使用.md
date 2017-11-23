@@ -163,3 +163,8 @@ cnpm install style-loader --save dev
 ```cnpm run dev```
 界面需手动打开 端口不定：http://localhost:8086/
 如果打开报错 则有可能端口被占用。需删除原文件
+- 然后输入```webpack```把dist文件编译出来。因为最后引入index.html的是dist文件
+- 如果没有```webpack```则下载webpack 输入```cnpm install webpack -g```下载webpack
+- 下载完成在执行``webpack``
+- 最后把index.html里的dist文件路径改一下就ok
+
