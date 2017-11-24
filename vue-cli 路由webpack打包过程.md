@@ -147,4 +147,10 @@ export default{
 ```
 13. 输入命令```cnpm run dev```启动服务器
 14. 输入```npm run build```编译
+
+- 然后输入webpack把dist文件编译出来。因为最后引入index.html的是dist文件
+- 如果没有webpack则下载webpack 输入cnpm install webpack -g下载webpack
+- 下载完成在执行webpack
+- 最后把index.html里的dist文件路径改一下就ok
+
 15. Element UI 组件参考 [Element UI官网](http://element-cn.eleme.io/#/zh-CN)
