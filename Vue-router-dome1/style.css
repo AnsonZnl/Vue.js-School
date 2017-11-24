@@ -1,0 +1,109 @@
+*{
+        padding: 0;
+        margin: 0;
+    }
+    .main{
+        margin: auto;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    a:hover{
+        text-decoration: blink;
+    }
+    /*main2*/
+    .main ul{
+        display: block;
+        margin: auto;
+        text-align: -webkit-center;
+    }
+    .main1{
+        width: 900px;
+        margin: auto;
+    }
+    .main1 img{
+        width: 600px;
+        display: block;
+        margin: auto;
+    }
+    h1{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    li{
+        width: 900px;
+        list-style: none;
+        margin-top: 20px;
+        border:solid 1px #ccc;
+        padding:10px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: left;
+        margin-left: 50px;
+        text-align: left;
+    }
+    .right p{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    /*main3*/
+    .fanhui-m1{
+        display: inline-block;
+        width: 922px;
+        padding: 20px;
+        text-align: center;
+        background: #1ea8aa;
+        text-decoration: none;
+        color: #fff;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .fanhui-m2{
+        display: inline-block;
+        padding: 10px;
+        text-align: center;
+        background: #1ea8aa;
+        font-size: 18px;
+        text-decoration: none;
+        color: #fff;
+        margin-top: 20px;
+    }
+    .block{
+        display: block;
+    }
+    .bg_clo{
+        background: #ffd810;
+        color: #000;
+    }
+    /*main4*/
+    .mains{
+        width: 700px;
+        margin: auto;
+    }
+    .input-group{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .m4-auto{
+        width: 50%;
+        text-align: center;
+    }
+    /*main5*/
+    .fw{
+        font-weight:bold;
+        font-size: 20px;
+    }
+    .main5s{
+        width: 700px;
+        height: 200px;
+        margin: auto;
+        padding-top: 40px;
+        background: #e0ff72;
+        text-align: center;
+    }
