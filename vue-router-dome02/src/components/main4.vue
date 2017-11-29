@@ -1,6 +1,6 @@
  <template>
          <form class="mains">
-            <h2>{{m4tname}}订单信息1：</h2>
+            <h2>{{m4tname}}订单信息：</h2>
             <div class="input-group input-group-lg">
                     <span class="input-group-addon">姓名:</span>
                     <input type="text" @blur="onuserInput()" class="form-control" v-model="userInput" placeholder="请输入您的姓名">
@@ -10,14 +10,14 @@
                     <span class="input-group-addon">手机号:</span>
                     <input type="text" @blur="onphoneInput()" class="form-control" v-model="phoneInput" placeholder="请输入您的手机号">
             </div>
-             <p id="text2">请输入正确的手机号1</p>
+             <p id="text2">请输入正确的手机号</p>
             <div class="input-group  input-group-lg">
                     <span class="input-group-addon">地址:</span>
                     <input type="text" @blur="onaddrInput" class="form-control" v-model="addrInput" placeholder="请输入您的地址">
             </div>
-             <p id="text3">请输入正确的地址1</p>
+             <p id="text3">请输入正确的地址</p>
             <div class="left m4-auto">
-                <router-link :to="{name:'game3',params{userInputs:userInput,phoneInputs:phoneInput,addrInputs:addrInput}}"class="btn btn-primary btn-lg">确认订单</router-link>
+                <button type="button" class="btn btn-primary btn-lg" @click="testReg()">确认订单</button>
             </div>
             <div class="left m4-auto">
                  <button  @click="rese()" type="button" class="btn btn-success btn-lg">修改订单</button>
@@ -45,14 +45,17 @@
             },
 //            姓名验证
             onuserInput:function(){
-                // [\u4E00-\uFA29]|[\uE7C7-\uE7F3]汉字编码范围
-//                var re1 = new RegExp("^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z0-9])*$");
                 var reg=/^[\u4E00-\uFA29]{2,5}$/;
                 var text1=document.getElementById("text1");
                 if(reg.test(this.userInput)){
                     text1.innerHTML='正确'
-                }else {
-                    text1.innerHTML='错误'
+                    return true
+                }else if(this.userInput==""){
+                    text1.innerHTML='姓名不能为空'
+                    return false
+                }else{
+                    text1.innerHTML='格式错误，请输入正确的姓名，只限2-5位汉字'
+                    return false
                 }
             },
 //            手机号验证
@@ -61,20 +64,36 @@
                     var text2=document.getElementById("text2");
                     if(reg.test(this.phoneInput)){
                         text2.innerHTML='正确'
+                        return true
+                    }else if(this.phoneInput==""){
+                        text2.innerHTML='手机号不能为空'
+                        return false
                     }else {
-                        text2.innerHTML='错误'
+                        text2.innerHTML='格式错误，请输入正确的国内大陆11位手机号'
+                        return false
                     }
                 },
-            //            姓名验证
+            //            地址验证
             onaddrInput:function(){
-                var reg=/^[\u4E00-\uFA29]{2,5}$/;
+                var reg=/^[\u4E00-\uFA29]|[0-9]{2,5}$/;
                 var text3=document.getElementById("text3");
                 if(reg.test(this.addrInput)){
                     text3.innerHTML='正确'
-                }else if(this.addrInput=''){
-                    text3.innerHTML='姓名不能为空'
+                    return true
+                }else if(this.addrInput==""){
+                    text3.innerHTML='地址不能为空'
+                    return false
                 }else {
-                    text3.innerHTML='错误'
+                    text3.innerHTML='格式错误'
+                    return false
+                }
+            },
+            testReg:function(){
+                if(this.onuserInput()&&this.onphoneInput()&&this.onaddrInput()){
+                    this.$router.push("/main5");
+                }else{
+                    alert("填写不正确，请重新填写");
+                     delIpu();
                 }
             }
         }

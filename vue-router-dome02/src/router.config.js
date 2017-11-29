@@ -10,8 +10,8 @@ export default{
 routes:[
     {path:"/main1",component:Main1},
     {path:"/main2",component:Main2},
-    {name:"game1",path:"/main3",component:Main3},
-    {name:"game2",path:"/main4",component:Main4},
+    {name:"game1",path:"/main3/:lis/:imge/:mname",component:Main3},
+    {name:"game2",path:"/main4/:m4Tname",component:Main4},
     {name:"game3",path:"/main5",component:Main5},
     {path:"/",component:Main1}
 ]

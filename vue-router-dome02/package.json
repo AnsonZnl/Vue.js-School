@@ -1,8 +1,8 @@
 {
-  "name": "dome02",
+  "name": "dome01",
   "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "",
+  "author": "AnsonZnl <1160030724@qq.com>",
   "license": "MIT",
   "private": true,
   "scripts": {

@@ -1,4 +1,4 @@
-# dome02
+# dome01
 
 > A Vue.js project
 

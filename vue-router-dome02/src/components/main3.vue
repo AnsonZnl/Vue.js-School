@@ -20,8 +20,8 @@
             }
         },
         beforeMount:function(){
-            var MainImg=this.$route.params.imge.slice(4);
-            this.MainImgs='img/'+MainImg;
+            var MainImg=this.$route.params.imge.slice(10);
+            this.MainImgs='src/assets'+MainImg;
             this.ming=this.$route.params.lis;
             this.tname=this.$route.params.mname;
             // //接受Mains的传过来的值
